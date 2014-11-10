@@ -1,0 +1,28 @@
+{
+  "name": "angular-analytics",
+  "version": "0.0.0",
+  "authors": [
+    "Standa Fifik <standa.fifik@gmail.com>"
+  ],
+  "description": "Angular wrapper for multiple web analytics sources",
+  "main": [
+  	"src/tracker.js",
+  	"src/mixpanel.js",
+  	"src/ga.js"
+  ],
+  "keywords": [
+    "analytics",
+    "angular",
+    "mixpanel.com",
+    "google",
+    "analytics"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
