@@ -6,7 +6,7 @@ currently supported:
 - Google analytics
 - mixpanel.com
 
-## Usage
+## [Documentation](http://ficik.github.io/angular-analytics/api/analytics)
 
 configure backends
 
