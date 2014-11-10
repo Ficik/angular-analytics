@@ -1,0 +1,19 @@
+<h1><code ng:non-bindable=""></code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><div class="analytics-page"><h2 id="configuration">Configuration</h2>
+<p>create your analytics module with dependencies on this module
+and desired tracker backends</p>
+<p>currently supported backends:</p>
+<ul>
+<li>analytics.ga - <a href="http://www.google.com/analytics/">Google Analytics</a></li>
+<li>analytics.mixpanel - <a href="http://mixpanel.com">Mixpanel.com</a></li>
+</ul>
+<pre><code>angular.module(&#39;tracker&#39;, [&#39;analytics&#39;, &#39;analytics.ga&#39;, &#39;analytics.mixpanel&#39;])
+  .config(function(analyticsProvider, gaProvider, mixpanelProvider) {
+    mixpanelProvider.token = &quot;SOMETOKEN&quot;;
+    gaProvider.token = &quot;UA-XXXXXXX-X&quot;;
+    analyticsProvider.backends = [&quot;ga&quot;, &quot;mixpanel&quot;];
+  });</code></pre>
+</div></div>

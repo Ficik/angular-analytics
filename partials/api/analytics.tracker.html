@@ -1,0 +1,58 @@
+<h1><code ng:non-bindable="">tracker</code>
+<div><span class="hint">service in module <code ng:non-bindable="">analytics</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="analytics-tracker-page"><h3 id="description_wrapper-for-web-analytics-trackers">Wrapper for web analytics trackers</h3>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_pageview">pageview(location)</h3>
+<div class="pageview"><div class="pageview-page"><h4 id="methods_pageview_logs-path-visit">Logs path visit</h4>
+<p>This method is called automatically on $locationChangeSuccess event,
+so you should call it manually only if you&#39;re not using ngRoute or similar router</p>
+</div><h5 id="methods_pageview_logs-path-visit_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>location</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="pageview-page"><p>path</p>
+</div></td></tr></tbody></table><h4 id="methods_pageview_example">Example</h4>
+<div class="example"><div class="pageview-page"><pre><code>.run(function(tracker, translations){
+  $rootScope.$on(&#39;locationChanged&#39;, function(location){
+    wrapper.pageview(location);
+  });
+});</code></pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_startsession">startSession(id, data)</h3>
+<div class="startsession"><div class="startsession-page"><h4 id="methods_startsession_creates-new-session">Creates new session</h4>
+</div><h5 id="methods_startsession_creates-new-session_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>id</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="startsession-page"><p>unique identifier of session</p>
+</div></td></tr><tr><td>data</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="startsession-page"><p>simple object containing session data</p>
+</div></td></tr></tbody></table><h4 id="methods_startsession_example">Example</h4>
+<div class="example"><div class="startsession-page"><pre><code>.run(function(tracker, translations){
+  tracker.startSession(&quot;session-&quot; + Math.floor(Math.random() * 10000), {
+      lang: translations.lang
+  });
+});</code></pre>
+</div></div>
+</div>
+</li>
+<li><h3 id="methods_track">track(category, action, data)</h3>
+<div class="track"><div class="track-page"><h4 id="methods_track_track-event">Track event</h4>
+<p>method for generic event you want to log</p>
+</div><h5 id="methods_track_track-event_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>category</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="track-page"><p>category of event</p>
+</div></td></tr><tr><td>action</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="track-page"><p>action of event</p>
+</div></td></tr><tr><td>data</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="track-page"><p>simple object containing additional informations for event</p>
+</div></td></tr></tbody></table><h4 id="methods_track_example">Example</h4>
+<div class="example"><div class="track-page"><pre><code>.controller(function($scope, tracker, social){
+     $scope.socialBtnClicked = function(event){
+         tracker.track(&quot;Social&quot;, &quot;click&quot;, {
+             network: social.network(event),
+             type: social.type(event)
+         });
+          social.process(event);
+     };
+});</code></pre>
+</div></div>
+</div>
+</li>
+</ul>
+</div>
+</div>

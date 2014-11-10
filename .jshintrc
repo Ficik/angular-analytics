@@ -1,0 +1,8 @@
+{
+  "node": true,
+  "globals": {
+    "angular" : true,
+    "mixpanel" : true,
+    "ga" : true
+  }
+}
