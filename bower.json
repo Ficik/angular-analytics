@@ -6,7 +6,7 @@
   ],
   "description": "Angular wrapper for multiple web analytics sources",
   "main": [
-  	"src/tracker.js",
+  	"src/analytics.js",
   	"src/mixpanel.js",
   	"src/ga.js"
   ],

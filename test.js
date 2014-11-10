@@ -1,4 +1,4 @@
-angular.module("test", ["ngRoute", "tracker", "mixpanel", "ga"])
+angular.module("test", ["ngRoute", "analytics", "analytics.mixpanel", "analytics.ga"])
 	.config(function(trackerProvider, mixpanelProvider, gaProvider) {
 		mixpanelProvider.token = "64fdd3c82153d8abee32e5b15fb5a0b1";
 		gaProvider.token = "UA-56538254-1";

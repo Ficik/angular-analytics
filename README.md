@@ -19,3 +19,7 @@ angular.module("myTrackingModule", ["analytics", "analytics.ga", "analytics.mixp
 	})
 
 ```
+
+## TODO
+
+- documentation

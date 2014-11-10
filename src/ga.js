@@ -1,4 +1,4 @@
-angular.module('ga', [])
+angular.module('analytics.ga', [])
 	.provider('ga', function(){
 		return {
 			token: undefined,

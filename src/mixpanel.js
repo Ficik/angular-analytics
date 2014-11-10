@@ -1,4 +1,4 @@
-angular.module('mixpanel', [])
+angular.module('analytics.mixpanel', [])
 	/**
 	 * mixpanel analytics
 	 */

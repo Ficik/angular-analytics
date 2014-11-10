@@ -1,4 +1,4 @@
-angular.module('tracker', [])
+angular.module('analytics', [])
 	/**
 	 * tracker
 	 */
