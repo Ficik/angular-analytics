@@ -1,7 +1,39 @@
+(function(){
+'use strict';
+
+/**
+ * @ngdoc overview
+ * @name analytics.ga
+ * 
+ * @description
+ * Google Analytics module for angular-analytics
+ */
 angular.module('analytics.ga', [])
+	/**
+	 * @ngdoc service
+	 * @name analytics.ga.gaProvider
+	 * @property {string} token identifier for google analytics (UA-XXXXX-X)
+	 * 
+	 * @description
+	 * Provider for setting analytics credentials
+	 * @example
+	 * ```js
+	 * angular.module('myModule')
+	 * 	.config(function(gaProvider){
+	 * 		gaProvider.token = 'UA-XXXX-X';
+	 * 	})
+	 * 	```
+	 */
 	.provider('ga', function(){
 		return {
 			token: undefined,
+			/**
+			 * @ngdoc service
+			 * @name analytics.ga.ga
+			 * @description
+			 * # Service for Google Analytics backend.
+			 * Should not be called directly. See {@link analytics} and {@link analytics.ga.gaProvider}
+			 */
 			$get : function(){
 				this.initialize();
 				var self = this;
@@ -32,7 +64,7 @@ angular.module('analytics.ga', [])
 						  'page': location
 						});
 					}
-				}		
+				};
 			},
 			initialize: function(){
 				/* jshint ignore:start */
@@ -45,3 +77,4 @@ angular.module('analytics.ga', [])
 			}
 		};
 	});
+})();

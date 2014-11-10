@@ -1,14 +1,31 @@
+(function(){
+/**
+ * @ngdoc overview
+ * @name analytics.mixpanel
+ * 
+ * @description
+ * Mixpanel module for angular-analytics
+ */
 angular.module('analytics.mixpanel', [])
 	/**
-	 * mixpanel analytics
+	 * @ngdoc service
+	 * @name analytics.mixpanel.mixpanelProvider
+	 * @property {string} token identifier for mixpanel
+	 * 
+	 * @description
+	 * Provider for setting mixpanel credentials
 	 */
 	.provider('mixpanel', function(){
 		return {
-			/**
-			 * Required
-			 * @type {string}
-			 */
 			token: undefined,
+			/**
+			 * @ngdoc service
+			 * @name analytics.mixpanel.mixpanel
+			 * @description
+			 * 
+			 * # Service for Mixpanel backend.
+			 * Should not be called directly. See {@link analytics} and {@link analytics.mixpanel.mixpanelProvider}
+			 */
 			$get : function(){
 				this.initialize();
 				return {
@@ -25,7 +42,7 @@ angular.module('analytics.mixpanel', [])
 						mixpanel.register(data);
 					},
 					pageview: function(location){
-						this.track("pageView", location)
+						this.track("pageView", location);
 					}
 				};
 			},
@@ -38,3 +55,4 @@ angular.module('analytics.mixpanel', [])
 			}
 		};
 	});
+})();

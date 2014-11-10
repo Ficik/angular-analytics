@@ -1,0 +1,9 @@
+{
+  "homepage": "https://github.com/Ficik/angular-analytics",
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-jshint": "^1.9.0",
+    "gulp-ngdocs": "^0.1.8",
+    "jshint-stylish": "^1.0.0"
+  }
+}
