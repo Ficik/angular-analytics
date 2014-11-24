@@ -8,7 +8,7 @@
  * @description
  * Google Analytics module for angular-analytics
  */
-angular.module('analytics.ga', [])
+angular.module('analytics.ga', ['analytics'])
 	/**
 	 * @ngdoc service
 	 * @name analytics.ga.gaProvider
@@ -24,7 +24,7 @@ angular.module('analytics.ga', [])
 	 * 	})
 	 * 	```
 	 */
-	.provider('ga', function(){
+	.provider('ga', function(trackerProvider){
 		return {
 			token: undefined,
 			/**
@@ -35,6 +35,7 @@ angular.module('analytics.ga', [])
 			 * Should not be called directly. See {@link analytics} and {@link analytics.ga.gaProvider}
 			 */
 			$get : function(){
+				this.protocol = this.protocol || trackerProvider.protocol;
 				this.initialize();
 				var self = this;
 				var token = function(){
@@ -67,11 +68,12 @@ angular.module('analytics.ga', [])
 				};
 			},
 			initialize: function(){
+				var self = this;
 				/* jshint ignore:start */
 				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-				})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+				})(window,document,'script',self.protocol+'www.google-analytics.com/analytics.js','ga');
 				/* jshint ignore:end */	
 				
 			}

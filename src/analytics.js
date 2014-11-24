@@ -26,11 +26,14 @@ angular.module('analytics', [])
 	 * @ngdoc service
 	 * @name analytics.trackerProvider
 	 * @property {array} backends list of enabled backends
+	 * @property {string} protocol protocol used for loading libraries. 
+	 * Defaults to 'http://' if on file protocol '//' otherwise   
 	 * 
 	 */
 	.provider('tracker', function() {
 		return {
 			backends : [],
+			protocol : location.protocol === 'file:' ? 'http://' : '//',
 			/**
 			 * @ngdoc service
 			 * @name analytics.tracker
@@ -38,6 +41,7 @@ angular.module('analytics', [])
 			 * # Wrapper for web analytics trackers
 			 */
 			$get: function($injector, $rootScope, $location){
+				var self = this;
 				var backends = this.backends.map(function(x){
 					return $injector.get(x);
 				});
