@@ -24,7 +24,7 @@ angular.module('analytics.ga', ['analytics'])
 	 * 	})
 	 * 	```
 	 */
-	.provider('ga', function(trackerProvider){
+	.provider('ga', ['trackerProvider', function(trackerProvider){
 		return {
 			token: undefined,
 			/**
@@ -48,7 +48,6 @@ angular.module('analytics.ga', ['analytics'])
 							eventCategory : category,
 							eventAction : action
 						}, data);						
-						console.log("GA event data:", data);
 						ga('send', 'event', data);
 					},
 					startSession: function(id, data){
@@ -56,7 +55,6 @@ angular.module('analytics.ga', ['analytics'])
 							clientId : id,
 							cookieDomain : 'none'
 						}, data);
-						console.log(data);
 						ga('create', token(), data);
 					},
 					pageview: function(location){
@@ -78,5 +76,5 @@ angular.module('analytics.ga', ['analytics'])
 				
 			}
 		};
-	});
+	}]);
 })();

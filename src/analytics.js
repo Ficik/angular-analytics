@@ -40,7 +40,7 @@ angular.module('analytics', [])
 			 * @description
 			 * # Wrapper for web analytics trackers
 			 */
-			$get: function($injector, $rootScope, $location){
+			$get: ['$injector', '$rootScope', '$location', function($injector, $rootScope, $location){
 				var self = this;
 				var backends = this.backends.map(function(x){
 					return $injector.get(x);
@@ -126,7 +126,7 @@ angular.module('analytics', [])
 				});
 
 				return wrapper;
-			}
+			}]
 		};
 	});
 })();

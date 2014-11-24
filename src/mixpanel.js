@@ -15,7 +15,7 @@ angular.module('analytics.mixpanel', ['analytics'])
 	 * @description
 	 * Provider for setting mixpanel credentials
 	 */
-	.provider('mixpanel', function(trackerProvider){
+	.provider('mixpanel', ['trackerProvider', function(trackerProvider){
 		return {
 			token: undefined,
 			/**
@@ -56,5 +56,5 @@ angular.module('analytics.mixpanel', ['analytics'])
 				/* jshint ignore:end */	
 			}
 		};
-	});
+	}]);
 })();
