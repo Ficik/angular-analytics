@@ -6,9 +6,9 @@
   ],
   "description": "Angular wrapper for multiple web analytics sources",
   "main": [
-  	"src/analytics.js",
-  	"src/mixpanel.js",
-  	"src/ga.js"
+    "src/analytics.js",
+    "src/mixpanel.js",
+    "src/ga.js"
   ],
   "keywords": [
     "analytics",
@@ -24,5 +24,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "angular": "*"
+  }
 }
