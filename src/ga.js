@@ -56,6 +56,7 @@ angular.module('analytics.ga', ['analytics'])
 							cookieDomain : 'none'
 						}, data);
 						ga('create', token(), data);
+						ga('set', 'checkProtocolTask', null);
 					},
 					pageview: function(location){
 						ga('send', {
